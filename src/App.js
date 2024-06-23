@@ -1,24 +1,38 @@
-import logo from './logo.svg';
-import './App.css';
+import React, { useState } from 'react';
+import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
+import { ThemeProviderWrapper } from './ThemeContext';
+import Sidebar from './components/Sidebar';
+import Topbar from './components/Topbar';
+import Tables from './components/Dashboard/Tables';
+import Charts from './components/Dashboard/Charts';
+import CalendarComponent from './components/Dashboard/Calendar';
+import KanbanBoard from './components/Dashboard/KanbanBoard';
+import './styles.css';
 
 function App() {
+  const [sidebarOpen, setSidebarOpen] = useState(true);
+
+  const toggleSidebar = () => {
+    setSidebarOpen(!sidebarOpen);
+  };
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <ThemeProviderWrapper>
+      <Router>
+        <div className="App">
+          <Sidebar open={sidebarOpen} />
+          <main className={sidebarOpen ? 'sidebar-open' : 'sidebar-hidden'}>
+            <Topbar toggleSidebar={toggleSidebar} />
+            <Routes>
+              <Route path="/tables" element={<Tables />} />
+              <Route path="/charts" element={<Charts />} />
+              <Route path="/calendar" element={<CalendarComponent />} />
+              <Route path="/kanban" element={<KanbanBoard />} />
+            </Routes>
+          </main>
+        </div>
+      </Router>
+    </ThemeProviderWrapper>
   );
 }
 

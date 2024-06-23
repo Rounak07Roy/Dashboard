@@ -1,0 +1,116 @@
+/* styles.css */
+
+/* Global Styles */
+body {
+    margin: 0;
+    font-family: 'Roboto', sans-serif;
+    background-color: #f4f4f4;
+  }
+  
+  .App {
+    display: flex;
+  }
+  
+  main {
+    flex-grow: 1;
+    padding: 20px;
+    margin-left: 250px; /* Adjusted for sidebar width */
+    transition: margin-left 0.3s;
+  }
+  
+  @media (max-width: 768px) {
+    main {
+      margin-left: 0;
+    }
+  }
+  
+  /* Sidebar Styles */
+  .sidebar {
+    width: 250px;
+    background-color: #3f51b5;
+    color: white;
+    height: 100vh;
+    position: fixed;
+    top: 0;
+    left: 0;
+    display: flex;
+    flex-direction: column;
+    transition: transform 0.3s ease;
+    z-index: 1000;
+  }
+  
+  .sidebar-hidden {
+    transform: translateX(-100%);
+  }
+  
+  .sidebar .MuiListItem-root {
+    color: white;
+  }
+  
+  .sidebar .MuiListItem-root:hover {
+    background-color: #303f9f;
+  }
+  
+  /* Topbar Styles */
+  .MuiAppBar-root {
+    z-index: 1201; /* Ensure the topbar is above the sidebar */
+  }
+  
+  .MuiToolbar-root {
+    display: flex;
+    justify-content: space-between;
+  }
+  
+  /* Table Styles */
+  .MuiDataGrid-root {
+    background-color: white;
+    border-radius: 8px;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+    margin-top: 20px;
+  }
+  
+  /* Chart Styles */
+  .chart-container {
+    background-color: white;
+    border-radius: 8px;
+    padding: 20px;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+    margin-top: 20px;
+  }
+  
+  /* Calendar Styles */
+  .calendar-container {
+    background-color: white;
+    border-radius: 8px;
+    padding: 20px;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+    margin-top: 20px;
+  }
+  
+  /* Kanban Board Styles */
+  .kanban-board {
+    display: flex;
+    background-color: white;
+    border-radius: 8px;
+    padding: 20px;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+    margin-top: 20px;
+    overflow-x: auto;
+  }
+  
+  .kanban-column {
+    margin: 0 10px;
+    background-color: #e3f2fd;
+    border-radius: 8px;
+    padding: 10px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+  }
+  
+  .kanban-task {
+    background-color: white;
+    border-radius: 4px;
+    padding: 10px;
+    margin-bottom: 10px;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+  }
+  
